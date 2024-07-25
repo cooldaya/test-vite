@@ -12,7 +12,10 @@
     "axios": "^1.7.2",
     "docx-preview": "^0.3.2",
     "jszip": "^3.10.1",
-    "vue": "^3.4.29"
+    "mitt": "^3.0.1",
+    "normalize.css": "^8.0.1",
+    "vue": "^3.4.29",
+    "vue-router": "^4.4.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",
