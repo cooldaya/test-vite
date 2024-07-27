@@ -18,6 +18,8 @@ function createRoutes() {
     infoMap[_infopath] = info;
   });
 
+  console.log("infoMap: ", infoMap);
+
   Object.entries(viewComponent).forEach(([path, component], order) => {
     const _path = path.replace("../views/", "").replace("/index.vue", "");
     const pathArr = _path.split("/");
@@ -31,9 +33,9 @@ function createRoutes() {
             component: component,
             name: path_step,
             path: `/${path_step}`,
+            meta: infoMap[_path] || {},
           };
         }
-        routeMap[path_step].meta = infoMap[_path] || {};
       } else {
         const parentRoute = routeMap[pathArr[index - 1]];
         if (!parentRoute) alert("最多只能两级路由");

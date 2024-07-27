@@ -6,6 +6,9 @@
 .kt-full {
   @apply h-full w-full;
 }
+.kt-page {
+  @apply kt-full overflow-hidden relative;
+}
 .kt-flex-center {
   @apply flex items-center justify-center;
 }

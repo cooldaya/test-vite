@@ -1,21 +1,26 @@
 <template>
-  <div class="kt-left">
+  <div
+    class="kt-left animate__animated animate__bounceInLeft"
+    @animationend="remoteAnimate"
+  >
     <slot></slot>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { remoteAnimate } from "@/utils/dom-tool";
+</script>
 
 <style lang="less" scoped>
 .kt-left {
   position: absolute;
   z-index: 20;
   left: 20px;
-  top: 40px;
+  top: 100px;
   width: 400px;
   border: solid 1px #ccc;
 
   // 自动高度时，注释
-  bottom: 40px;
+  bottom: 100px;
 }
 </style>

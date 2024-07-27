@@ -7,10 +7,12 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    copy: typeof import('./components/kt-comps/kt-top copy.vue')['default']
     KtBottom: typeof import('./components/kt-comps/kt-bottom.vue')['default']
     KtChart: typeof import('./components/kt-comps/kt-chart.vue')['default']
-    KtEchart: typeof import('./components/kt-comps/kt-echart.vue')['default']
+    KtDatetimer: typeof import('./components/kt-comps/kt-datetimer.vue')['default']
+    KtDateTimer: typeof import('./components/kt-comps/kt-date-timer.vue')['default']
+    KtFooter: typeof import('./components/cus-comps/kt-footer.vue')['default']
+    KtHeader: typeof import('./components/cus-comps/kt-header.vue')['default']
     KtLeft: typeof import('./components/kt-comps/kt-left.vue')['default']
     KtRight: typeof import('./components/kt-comps/kt-right.vue')['default']
     KtTop: typeof import('./components/kt-comps/kt-top.vue')['default']

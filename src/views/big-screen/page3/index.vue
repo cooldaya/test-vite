@@ -1,5 +1,5 @@
 <template>
-  <div class="kt-page">page2</div>
+  <div class="kt-page">page3</div>
 </template>
 
 <script setup></script>

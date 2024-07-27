@@ -14,6 +14,8 @@ lib功能包含:
         1. 事件监听触发器 emitter.js
         2. 数字处理      num-tools.js
         3. xlsx文件处理   xlsx-tools.js
+    bug处理
+        1. 修复animate.css 与 autofit.js 一起使用时，可能产生的模糊问题
 
         
 

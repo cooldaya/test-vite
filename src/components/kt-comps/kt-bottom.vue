@@ -1,10 +1,15 @@
 <template>
-  <div class="kt-bottom">
+  <div
+    class="kt-bottom animate__animated animate__bounceInUp"
+    @animationend="remoteAnimate"
+  >
     <slot></slot>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { remoteAnimate } from "@/utils/dom-tool";
+</script>
 
 <style lang="less" scoped>
 .kt-bottom {

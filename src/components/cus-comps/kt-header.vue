@@ -1,5 +1,7 @@
 <template>
-  <div class="kt-page"></div>
+  <kt-top>
+    <kt-date-timer></kt-date-timer>
+  </kt-top>
 </template>
 
 <script setup></script>

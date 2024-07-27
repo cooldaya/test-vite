@@ -1,13 +1,11 @@
 <template>
-  <div>
-    <kt-top> top </kt-top>
+  <div class="kt-page">
     <kt-left>
-      <div class="h-[240px] w-full">
+      <div class="h-[300px]">
         <kt-chart :option="option" />
       </div>
     </kt-left>
-    <kt-right> right </kt-right>
-    <kt-bottom> bottom </kt-bottom>
+    <kt-right><div class="absolute -translate-x-[9px] text-[50px]">right</div> </kt-right>
   </div>
 </template>
 
@@ -27,6 +25,7 @@ const option = {
     },
   ],
 };
+
 </script>
 
 <style lang="css" scoped></style>

@@ -1,4 +1,4 @@
 export default {
-    name: '页面1',
+    name: '页面2',
     nav: true,
 }
