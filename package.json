@@ -11,6 +11,7 @@
   "dependencies": {
     "axios": "^1.7.2",
     "docx-preview": "^0.3.2",
+    "echarts": "^5.5.1",
     "jszip": "^3.10.1",
     "mitt": "^3.0.1",
     "normalize.css": "^8.0.1",
