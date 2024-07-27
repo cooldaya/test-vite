@@ -1,16 +1,8 @@
 <script setup>
 import docxUrl from "./assets/test.docx?url";
 import { setIntervalEmit, compOnEvents } from "@/utils/emitter";
-
-const events = {
-  "kt-refresh": () => {
-    console.log("refresh");
-  },
-};
-compOnEvents(events);
-
-setIntervalEmit(3 * 1000);
-// sendToUE5("typ1", { msg: "hello ue5" });
+import { getXlsData } from "@/utils/xlsx-tools";
+import xlsUrl from '@/assets/device-points.xls?url'
 
 </script>
 

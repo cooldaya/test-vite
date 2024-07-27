@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div>Fadfa
     <router-view></router-view>
   </div>
 </template>
