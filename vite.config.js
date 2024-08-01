@@ -21,11 +21,27 @@ export default defineConfig({
         find: "@",
         replacement: path.resolve(projectRootDir, "src"),
       },
+      {
+        find: "@apis",
+        replacement: path.resolve(projectRootDir, "src/request/apis"),
+      },
+      {
+        find: "@utils",
+        replacement: path.resolve(projectRootDir, "src/utils"),
+      },
     ],
   },
   server: {
     port: 9983,
     host: "0.0.0.0",
+    proxy: {
+      // 选项写法
+      "/kt-api": {
+        target: "http://jsonplaceholder.typicode.com",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/kt-api/, ""),
+      },
+    },
   },
   assetsInclude: ["./src/assets/**"],
 });
