@@ -7,8 +7,12 @@
   @apply h-full w-full;
 }
 .kt-page {
-  @apply kt-full overflow-hidden relative;
+  @apply kt-full relative overflow-hidden;
 }
 .kt-flex-center {
   @apply flex items-center justify-center;
+}
+
+.kt-bg-full {
+  @apply bg-cover bg-center bg-no-repeat;
 }

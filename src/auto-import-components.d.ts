@@ -9,7 +9,6 @@ declare module 'vue' {
   export interface GlobalComponents {
     KtBottom: typeof import('./components/kt-comps/kt-bottom.vue')['default']
     KtChart: typeof import('./components/kt-comps/kt-chart.vue')['default']
-    KtDatetimer: typeof import('./components/kt-comps/kt-datetimer.vue')['default']
     KtDateTimer: typeof import('./components/kt-comps/kt-date-timer.vue')['default']
     KtFooter: typeof import('./components/cus-comps/kt-footer.vue')['default']
     KtHeader: typeof import('./components/cus-comps/kt-header.vue')['default']
