@@ -14,6 +14,7 @@ declare module 'vue' {
     KtHeader: typeof import('./components/cus-comps/kt-header.vue')['default']
     KtLeft: typeof import('./components/kt-comps/kt-left.vue')['default']
     KtRight: typeof import('./components/kt-comps/kt-right.vue')['default']
+    KtToggleImg: typeof import('./components/kt-comps/kt-toggle-img.vue')['default']
     KtTop: typeof import('./components/kt-comps/kt-top.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
