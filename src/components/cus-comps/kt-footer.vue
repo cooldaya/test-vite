@@ -1,6 +1,5 @@
 <template>
   <kt-bottom>
-    <div class="text-[30px]">{{ count }}</div>
     <div class="kt-full kt-flex-center">
       <div class="flex gap-x-[20px]">
         <router-link

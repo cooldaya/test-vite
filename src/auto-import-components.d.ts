@@ -7,16 +7,21 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    copy: typeof import('./components/kt-comps/text-scroll copy.vue')['default']
     KtBottom: typeof import('./components/kt-comps/kt-bottom.vue')['default']
     KtChart: typeof import('./components/kt-comps/kt-chart.vue')['default']
     KtDateTimer: typeof import('./components/kt-comps/kt-date-timer.vue')['default']
+    KtEchart: typeof import('./components/kt-comps/kt-ui/kt-echart.vue')['default']
     KtFooter: typeof import('./components/cus-comps/kt-footer.vue')['default']
     KtHeader: typeof import('./components/cus-comps/kt-header.vue')['default']
     KtLeft: typeof import('./components/kt-comps/kt-left.vue')['default']
     KtRight: typeof import('./components/kt-comps/kt-right.vue')['default']
+    KtTable: typeof import('./components/kt-comps/kt-ui/kt-table.vue')['default']
+    KtTextScroll: typeof import('./components/kt-comps/kt-text-scroll.vue')['default']
     KtToggleImg: typeof import('./components/kt-comps/kt-toggle-img.vue')['default']
     KtTop: typeof import('./components/kt-comps/kt-top.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TextScroll: typeof import('./components/kt-comps/text-scroll.vue')['default']
   }
 }
