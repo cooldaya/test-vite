@@ -20,7 +20,10 @@
       </div>
     </kt-left>
     <kt-right
-      ><div class="absolute -translate-x-[9px] text-[50px]">right</div>
+      ><div class="absolute -translate-x-[9px] text-[50px]">
+        <div>{{ META.name }}</div>
+        <div>{{ META.count }}</div>
+      </div>
     </kt-right>
   </div>
 </template>
@@ -28,6 +31,7 @@
 <script setup>
 import { ref, reactive } from "vue";
 import { getCompImg } from "@/utils/get-assets";
+import META from "@/meta";
 
 const imgUrl = getCompImg("RE4wqI5.jfif");
 
@@ -207,6 +211,10 @@ setTimeout(() => {
     },
   ];
 }, 2000);
+
+setInterval(() => {
+  META.count++;
+}, 1000);
 </script>
 
 <style lang="css" scoped></style>
