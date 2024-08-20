@@ -8,6 +8,8 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     copy: typeof import('./components/kt-comps/text-scroll copy.vue')['default']
+    KtAnimeScroll: typeof import('./components/kt-comps/kt-anime-scroll.vue')['default']
+    KtAniScroll: typeof import('./components/kt-comps/kt-ani-scroll.vue')['default']
     KtBottom: typeof import('./components/kt-comps/kt-bottom.vue')['default']
     KtChart: typeof import('./components/kt-comps/kt-chart.vue')['default']
     KtDateTimer: typeof import('./components/kt-comps/kt-date-timer.vue')['default']

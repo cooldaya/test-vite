@@ -16,3 +16,7 @@
 .kt-bg-full {
   @apply bg-cover bg-center bg-no-repeat;
 }
+
+.kt-border{
+  @apply border-2 border-red-500;
+}

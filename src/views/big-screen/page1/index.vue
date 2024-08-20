@@ -4,8 +4,8 @@
       <div class="h-[300px]">
         <kt-chart :option="option" />
       </div>
-      <div class="h-[300px] w-[200px]">
-        <kt-text-scroll>
+      <div class="kt-border h-[300px] w-[200px]" >
+        <kt-anime-scroll :a-speed="30">
           <div>
             o convert this code into an ECMAScript module (ESM) format, you'll
             need to make a few adjustments. Here's how you can do it: Replace
@@ -35,7 +35,7 @@
             ue5. The code is encapsulated within the module and ready to be used
             in an ESM environment. You can import it in another file like this:
           </div>
-        </kt-text-scroll>
+        </kt-anime-scroll>
       </div>
     </kt-left>
     <kt-right
