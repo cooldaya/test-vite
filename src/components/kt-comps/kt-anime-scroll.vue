@@ -18,8 +18,19 @@
 </template>
 
 <script setup>
-import { onMounted, ref, reactive } from "vue";
+import {
+  onMounted,
+  ref,
+  reactive,
+  useSlots,
+  watch,
+  nextTick,
+  watchEffect,
+} from "vue";
 import anime from "animejs/lib/anime.es.js";
+
+const slots = useSlots();
+
 const TextScrollElRef = ref(null);
 const props = defineProps({
   aSpeed: {
@@ -27,7 +38,7 @@ const props = defineProps({
     default: 30,
     type: Number,
   },
-  sSpeed: {
+  sSpeed: { // 滚动条滚动速度
     default: 0.48,
     type: Number,
   },
@@ -102,8 +113,31 @@ const opts = {
     opts.calculateConfig();
     opts.initAnimate();
   },
+  reset: () => {
+    config.isOverflow = false;
+    config.animationDuration = 100000;
+    if (animation) {
+      animation.pause(); // 暂停动画
+      animation.seek(0); // 将动画重置到起始位置
+    }
+    position.y = 0;
+    nextTick(() => {
+      opts.init(); // 重新初始化
+    });
+  },
 };
 
+// 监听slots.default内容变化
+watch(
+  () => slots.default(),
+  () => {
+    opts.reset();
+  },
+);
+// 监听多个 props 重置动画
+watch([() => props.aSpeed, () => props.sSpeed], () => {
+  opts.reset();
+});
 onMounted(() => {
   opts.init();
 });
@@ -111,6 +145,7 @@ onMounted(() => {
 defineExpose({
   pause: opts.controlScroll("paused"),
   play: opts.controlScroll("running"),
+  reset: opts.reset,
 });
 </script>
 

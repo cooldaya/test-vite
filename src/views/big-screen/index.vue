@@ -1,10 +1,10 @@
 <template>
   <div class="kt-page big-screen">
-    <kt-header> top </kt-header>
+    <cus-header> top </cus-header>
 
     <router-view></router-view>
 
-    <kt-footer> bottom </kt-footer>
+    <cus-footer> bottom </cus-footer>
   </div>
 </template>
 

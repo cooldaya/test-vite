@@ -8,6 +8,8 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     copy: typeof import('./components/kt-comps/text-scroll copy.vue')['default']
+    CusFooter: typeof import('./components/cus-comps/cus-footer.vue')['default']
+    CusHeader: typeof import('./components/cus-comps/cus-header.vue')['default']
     KtAnimeScroll: typeof import('./components/kt-comps/kt-anime-scroll.vue')['default']
     KtAniScroll: typeof import('./components/kt-comps/kt-ani-scroll.vue')['default']
     KtBottom: typeof import('./components/kt-comps/kt-bottom.vue')['default']
@@ -18,7 +20,7 @@ declare module 'vue' {
     KtHeader: typeof import('./components/cus-comps/kt-header.vue')['default']
     KtLeft: typeof import('./components/kt-comps/kt-left.vue')['default']
     KtRight: typeof import('./components/kt-comps/kt-right.vue')['default']
-    KtTable: typeof import('./components/kt-comps/kt-ui/kt-table.vue')['default']
+    KtTable: typeof import('./components/kt-comps/kt-table.vue')['default']
     KtTextScroll: typeof import('./components/kt-comps/kt-text-scroll.vue')['default']
     KtToggleImg: typeof import('./components/kt-comps/kt-toggle-img.vue')['default']
     KtTop: typeof import('./components/kt-comps/kt-top.vue')['default']

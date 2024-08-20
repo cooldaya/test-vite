@@ -17,6 +17,11 @@
   @apply bg-cover bg-center bg-no-repeat;
 }
 
-.kt-border{
+.kt-border {
   @apply border-2 border-red-500;
+}
+
+.kt-full-residue {
+  /* 占满剩余空间，切不会被内容撑大 */
+  @apply min-h-0 flex-1 overflow-hidden;
 }
