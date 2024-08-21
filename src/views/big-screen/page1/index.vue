@@ -39,6 +39,7 @@ import { getCompImg } from "@utils/get-assets";
 import META from "@/meta";
 import KtLottiePlayer from "@/components/lib-comps/kt-lottie-player.vue";
 import { getWeatherInfo } from "@apis/common";
+import useIntervalCall from '@hooks/useIntervalCall'
 
 const imgUrl = getCompImg("RE4wqI5.jfif");
 
@@ -94,7 +95,7 @@ const tableConfig = reactive({
 const testText = ref("");
 
 let m = 0;
-setTimeout(() => {
+useIntervalCall(() => {
   testText.value =
     m++ +
     `o convert this code into an ECMAScript module (ESM) format, you'll

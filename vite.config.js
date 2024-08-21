@@ -29,6 +29,10 @@ export default defineConfig({
         find: "@utils",
         replacement: path.resolve(projectRootDir, "src/utils"),
       },
+      {
+        find: "@hooks",
+        replacement: path.resolve(projectRootDir, "src/hooks"),
+      },
     ],
   },
   server: {
