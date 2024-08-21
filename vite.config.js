@@ -33,6 +33,10 @@ export default defineConfig({
         find: "@hooks",
         replacement: path.resolve(projectRootDir, "src/hooks"),
       },
+      {
+        find: "@lib-comps",
+        replacement: path.resolve(projectRootDir, "src/components/lib-comps"),
+      },
     ],
   },
   server: {

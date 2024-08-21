@@ -5,7 +5,7 @@
         <kt-chart :option="option" />
       </div>
       <div class="kt-border h-[300px] w-[200px]">
-        <kt-anime-scroll>
+        <kt-anime-scroll v-loading="loading">
           <div>
             {{ testText }}
           </div>
@@ -39,9 +39,7 @@ import { getCompImg } from "@utils/get-assets";
 import META from "@/meta";
 import KtLottiePlayer from "@/components/lib-comps/kt-lottie-player.vue";
 import { getWeatherInfo } from "@apis/common";
-import useIntervalCall from '@hooks/useIntervalCall'
-
-const imgUrl = getCompImg("RE4wqI5.jfif");
+import useIntervalCall from "@hooks/useIntervalCall";
 
 const option = {
   xAxis: {
@@ -94,8 +92,9 @@ const tableConfig = reactive({
 
 const testText = ref("");
 
+const loading = ref(true);
 let m = 0;
-useIntervalCall(() => {
+setTimeout(() => {
   testText.value =
     m++ +
     `o convert this code into an ECMAScript module (ESM) format, you'll
@@ -218,9 +217,10 @@ useIntervalCall(() => {
       k7: "定位",
     },
   ];
-}, 2000);
+  loading.value = false;
+}, 1000 * 3);
 
-setInterval(() => {
+useIntervalCall(() => {
   META.count++;
 }, 1000);
 </script>

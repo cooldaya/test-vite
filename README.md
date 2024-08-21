@@ -17,6 +17,9 @@ lib功能包含:
         1. 事件监听触发器 emitter.js
         2. 数字处理      num-tools.js
         3. xlsx文件处理   xlsx-tools.js
+    hooks
+        1. 定时执行函数 useIntervalCall.js
+
     ue交互
         工具函数
       

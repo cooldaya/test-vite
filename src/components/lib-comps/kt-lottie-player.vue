@@ -19,7 +19,6 @@ onMounted(() => {
     loop: true,
     ...attrs,
   });
-  animationInstance.setSpeed(0.5);
 });
 </script>
 
