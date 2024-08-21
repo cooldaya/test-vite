@@ -20,9 +20,14 @@
       </div>
     </kt-left>
     <kt-right
-      ><div class="absolute -translate-x-[9px] text-[50px]">
+      ><div class="absolute text-[50px]">
         <div>{{ META.name }}</div>
         <div>{{ META.count }}</div>
+        <div class="kt-border h-[80px] w-[80px]">
+          <kt-lottie-player
+            path="https://lottie.host/d46c1f51-1a07-4df0-a25f-5211d8708516/emAL5JbBHY.json"
+          />
+        </div>
       </div>
     </kt-right>
   </div>
@@ -32,6 +37,7 @@
 import { ref, reactive } from "vue";
 import { getCompImg } from "@/utils/get-assets";
 import META from "@/meta";
+import KtLottiePlayer from "@/components/lib-comps/kt-lottie-player.vue";
 
 const imgUrl = getCompImg("RE4wqI5.jfif");
 
