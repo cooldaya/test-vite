@@ -25,7 +25,7 @@
         <div>{{ META.count }}</div>
         <div class="kt-border h-[80px] w-[80px]">
           <kt-lottie-player
-            path="https://lottie.host/d46c1f51-1a07-4df0-a25f-5211d8708516/emAL5JbBHY.json"
+            path="https://lottie.host/149984a5-de21-49e6-97f5-0d9094a4295a/r26yfFci8q.json"
           />
         </div>
       </div>
@@ -35,9 +35,10 @@
 
 <script setup>
 import { ref, reactive } from "vue";
-import { getCompImg } from "@/utils/get-assets";
+import { getCompImg } from "@utils/get-assets";
 import META from "@/meta";
 import KtLottiePlayer from "@/components/lib-comps/kt-lottie-player.vue";
+import { getWeatherInfo } from "@apis/common";
 
 const imgUrl = getCompImg("RE4wqI5.jfif");
 
