@@ -18,13 +18,16 @@ lib功能包含:
         2. 数字处理      num-tools.js
         3. xlsx文件处理   xlsx-tools.js
     hooks
-        1. 定时执行函数 useIntervalCall.js
+        
 
     ue交互
         工具函数
       
     bug处理
         1. 修复animate.css 与 autofit.js 一起使用时，可能产生的模糊问题
+    项目功能
+        1.自动命令打包
+        2.添加项目打开时间限制
 
         
 
