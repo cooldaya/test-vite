@@ -1,4 +1,4 @@
-import { httpGet, httpPost } from "../http";
+import { httpGet } from "../http";
 // 获取天气
 // location 是经纬度坐标
 // icon使用方式 https://icons.qweather.com/usage/#icon-font

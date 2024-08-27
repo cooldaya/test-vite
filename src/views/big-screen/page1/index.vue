@@ -28,6 +28,7 @@
             path="https://lottie.host/149984a5-de21-49e6-97f5-0d9094a4295a/r26yfFci8q.json"
           />
         </div>
+        <div>{{ timeAgo }}</div>
       </div>
     </kt-right>
   </div>
@@ -39,7 +40,9 @@ import { getCompImg } from "@utils/get-assets";
 import META from "@/meta";
 import KtLottiePlayer from "@/components/lib-comps/kt-lottie-player.vue";
 import { getWeatherInfo } from "@apis/common";
-import useIntervalCall from "@hooks/useIntervalCall";
+import { useIntervalFn, useTimeAgo } from "@vueuse/core";
+
+const timeAgo = useTimeAgo(new Date(2021, 0, 1));
 
 const option = {
   xAxis: {
@@ -220,7 +223,7 @@ setTimeout(() => {
   loading.value = false;
 }, 1000 * 3);
 
-useIntervalCall(() => {
+useIntervalFn(() => {
   META.count++;
 }, 1000);
 </script>
