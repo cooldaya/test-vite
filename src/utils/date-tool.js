@@ -1,5 +1,5 @@
 /**
- * 
+ *
  * @param {*} date 需要转换的日期
  * @returns 返回相对时间
  */
@@ -22,4 +22,25 @@ export function timeAgo(date) {
   if (diffInSeconds < 29030400)
     return rtf.format(-Math.floor(diffInSeconds / 2419200), "month");
   return rtf.format(-Math.floor(diffInSeconds / 29030400), "year");
+}
+
+/**
+ *
+ * @param {*} date 需要转换的日期
+ * @param {*} format 转换格式
+ * @returns 返回指定格式的日期字符串
+ */
+function formatDate(date, format) {
+  const map = {
+    MM: date.getMonth() + 1,
+    dd: date.getDate(),
+    yyyy: date.getFullYear(),
+    HH: date.getHours(),
+    mm: date.getMinutes(),
+    ss: date.getSeconds(),
+  };
+
+  return format.replace(/MM|dd|yyyy|HH|mm|ss/gi, (matched) => {
+    return map[matched].toString().padStart(2, "0");
+  });
 }
