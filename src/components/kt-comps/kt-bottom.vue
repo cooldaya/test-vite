@@ -14,6 +14,7 @@ import { remoteAnimate } from "@/utils/dom-tool";
 <style lang="less" scoped>
 .kt-bottom {
   position: absolute;
+  pointer-events: auto;
   z-index: 21;
   left: 0;
   bottom: 0;

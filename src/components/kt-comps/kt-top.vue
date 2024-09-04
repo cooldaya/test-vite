@@ -20,5 +20,6 @@ import { remoteAnimate } from "@/utils/dom-tool";
   right: 0;
   height: 80px;
   border: solid 1px #ccc;
+  pointer-events: auto;
 }
 </style>

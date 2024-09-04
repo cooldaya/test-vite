@@ -19,6 +19,7 @@ import { remoteAnimate } from "@/utils/dom-tool";
   top: 100px;
   width: 400px;
   border: solid 1px #ccc;
+  pointer-events: auto;
 
   // 自动高度时，注释
   bottom: 100px;
