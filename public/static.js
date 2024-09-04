@@ -3,4 +3,4 @@ window._config = {
   base_url: "http://localhost:3000",
 };
 
-window.access_code = "4Iy0aSi5MNODTB25Db0pkjBc+iAt4ohqBArTa0yd+7YmuBkKfxLsCETuTGpO8P6rl+/wsRuik1pMqpIpryf33GRf"; // 用于授权访问
+window.access_code = "8+ENP+n8KUq5FNGMvRBz2gfjW1mZJyRgCu1IHFECwIEbpEE+XJaquxkGdWNnATGOtUt38OtrZ7rqKADZf7AtVYoRDmTvJw=="; // 用于授权访问
