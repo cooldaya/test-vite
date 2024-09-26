@@ -7,18 +7,19 @@
           class="absolute w-full h-full pointer-events-none"
           :src="img"
           :key="img"
-          v-show="index == active"
+          v-show="index == activeIndex"
         />
       </transition>
     </template>
 
-    <div class="absolute inset-0 z-[2]">
+    <div class="w-full h-full absolute inset-0 z-[2]" v-bind="$attrs">
       <slot></slot>
     </div>
   </div>
 </template>
 
 <script setup>
+import { computed } from "vue";
 const props = defineProps({
   imgs: {
     type: Array,
@@ -28,6 +29,18 @@ const props = defineProps({
     type: Number,
     default: 0,
   },
+  flag: {
+    type: Boolean,
+    default: undefined,
+  },
+});
+
+const activeIndex = computed(() => {
+  if (props.flag === undefined) {
+    return props.active;
+  } else {
+    return props.flag ? 1 : 0;
+  }
 });
 </script>
 
