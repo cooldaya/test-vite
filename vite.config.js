@@ -59,6 +59,10 @@ export default defineConfig({
         find: "@lib-comps",
         replacement: path.resolve(projectRootDir, "src/components/lib-comps"),
       },
+      {
+        find: "@assets",
+        replacement: path.resolve(projectRootDir, "src/assets"),
+      },
     ],
   },
   server: {

@@ -43,7 +43,6 @@ import { getWeatherInfo } from "@apis/common";
 import { useIntervalFn, useTimeAgo } from "@vueuse/core";
 
 const timeAgo = useTimeAgo(new Date(2021, 0, 1));
-
 const option = {
   xAxis: {
     type: "category",
