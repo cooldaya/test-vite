@@ -1,12 +1,14 @@
 class StreamController {
-  host = "localhost";
+  host = location.hostname;
   token = "";
   reqTools = {};
 
   streamIdMap = new Map();
 
+  streamLiveCountsMap = new Map(); // 某个地址当前正在播放的流的次数记录
+
   constructor(config) {
-    const { host, el, username = "kt", password = "123" } = config;
+    const { host, username = "kt", password = "123" } = config;
 
     this.host = host;
     this.token = this.getToken(username, password);
@@ -116,6 +118,11 @@ class StreamController {
 
   async mountPlayer(config = {}) {
     const { url, el, toh264 } = config;
+    if(!url) return;
+
+    // 记录当前地址正在播放的流的次数
+    const count = this.streamLiveCountsMap.get(url) || 0;
+    this.streamLiveCountsMap.set(url, count + 1);
 
     const rtcIframeUrl = await this.reqTools.getRTCIframeUrl(url, toh264);
     const iframe = document.createElement("iframe");
@@ -125,7 +132,20 @@ class StreamController {
       height: "100%",
       border: "none",
     });
+    el.innerHTML = "";
     el.appendChild(iframe);
+  }
+
+  stopStream(url){
+    debugger
+    const count = this.streamLiveCountsMap.get(url) || 0;
+    if (count > 1) {
+      // 当有其他地方在播放该流时，不停止
+      this.streamLiveCountsMap.set(url, count - 1);
+    } else {
+      this.streamLiveCountsMap.delete(url);
+      streamController.reqTools.stopPath(url);
+    }
   }
 }
 
@@ -133,10 +153,11 @@ const streamController = new StreamController({
   host: location.hostname,
 });
 
+window.streamController = streamController;
 export const mountPlayer = (config) => {
   streamController.mountPlayer(config);
 };
 
 export const stopStream = (url) => {
-  streamController.reqTools.stopPath(url);
+  streamController.stopStream(url);
 };
