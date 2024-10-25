@@ -19,30 +19,16 @@
         ></kt-table>
       </div>
     </kt-left>
-    <kt-right
-      ><div class="absolute text-[50px]">
-        <div>{{ META.name }}</div>
-        <div>{{ META.count }}</div>
-        <div class="kt-border h-[80px] w-[80px]">
-          <kt-lottie-player
-            path="https://lottie.host/149984a5-de21-49e6-97f5-0d9094a4295a/r26yfFci8q.json"
-          />
-        </div>
-        <div>{{ timeAgo }}</div>
-      </div>
+    <kt-right>
+      <div>fdsfsd</div>
     </kt-right>
   </div>
 </template>
 
 <script setup>
 import { ref, reactive } from "vue";
-import { getCompImg } from "@utils/get-assets";
-import META from "@/meta";
-import KtLottiePlayer from "@/components/lib-comps/kt-lottie-player.vue";
-import { getWeatherInfo } from "@apis/common";
-import { useIntervalFn, useTimeAgo } from "@vueuse/core";
+import { getPosts } from "@apis/page1";
 
-const timeAgo = useTimeAgo(new Date(2021, 0, 1));
 const option = {
   xAxis: {
     type: "category",
@@ -222,9 +208,13 @@ setTimeout(() => {
   loading.value = false;
 }, 1000 * 3);
 
-useIntervalFn(() => {
-  META.count++;
-}, 1000);
+getPosts().then((res) => {
+  clog(res);
+});
+
+
+window.getPosts = getPosts;
+
 </script>
 
 <style lang="css" scoped></style>

@@ -2,7 +2,7 @@ import axios from "axios";
 import { requestInterceptor, responseInterceptor } from "./interceptors";
 
 const http = axios.create({});
-http.defaults.headers.common['Content-Type'] = 'application/json';
+http.defaults.headers.common["Content-Type"] = "application/json";
 
 const { DEV } = import.meta.env;
 
@@ -14,6 +14,7 @@ if (DEV) {
 
 http.interceptors.request.use(requestInterceptor);
 http.interceptors.response.use(responseInterceptor);
+
 
 export const httpGet = (url, params = {}, headers = {}) =>
   http.get(url, { params, headers });
@@ -27,5 +28,7 @@ export const httpPut = (url, data = {}, headers = {}) =>
 export const httpDelete = (url, headers = {}) => http.delete(url, { headers });
 
 export const httpInstance = http;
+
+window.http = http;
 
 export default http;

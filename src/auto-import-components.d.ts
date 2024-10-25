@@ -17,6 +17,7 @@ declare module 'vue' {
     KtLeft: typeof import('./components/kt-comps/kt-left.vue')['default']
     KtRight: typeof import('./components/kt-comps/kt-right.vue')['default']
     KtRtspPlayer: typeof import('./components/cus-comps/kt-rtsp-player.vue')['default']
+    KtScale: typeof import('./components/kt-comps/kt-scale.vue')['default']
     KtTable: typeof import('./components/kt-comps/kt-table.vue')['default']
     KtTip: typeof import('./components/cus-comps/kt-tip.vue')['default']
     KtToggleImg: typeof import('./components/kt-comps/kt-toggle-img.vue')['default']
