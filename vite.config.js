@@ -63,6 +63,14 @@ export default defineConfig({
         find: "@assets",
         replacement: path.resolve(projectRootDir, "src/assets"),
       },
+      {
+        find: "@ref-data",
+        replacement: path.resolve(projectRootDir, "src/request/ref-data"),
+      },
+      {
+        find:"@request",
+        replacement: path.resolve(projectRootDir, "src/request"),
+      }
     ],
   },
   server: {

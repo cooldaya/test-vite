@@ -1,8 +1,6 @@
 import KtLottiePlayer from "@lib-comps/kt-lottie-player.vue"; // 动画组件
 import { createApp } from "vue";
-
-const iconAnimaUrl =
-  "https://lottie.host/254c85c9-503e-4fd7-88e9-0bdb69137181/cuvyJJMQbF.json";
+import iconAnimaUrl from "@assets/common/icon-anima.json?url";
 
 const directive = {
   mounted(el, binding) {
@@ -13,7 +11,7 @@ const directive = {
     spinner.className = "spinner";
     Object.assign(spinner.style, {
       width: "60%",
-      height:'60%',
+      height: "60%",
       margin: "auto",
     });
     loadingMask.appendChild(spinner);
@@ -29,7 +27,7 @@ const directive = {
       backgroundColor: "rgba(0, 0, 0, 0.2)",
       display: "flex",
       zIndex: "1000",
-      pointerEvents: "none",
+      pointerEvents: "auto",
     });
     el.loadingMask = loadingMask;
 

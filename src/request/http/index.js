@@ -1,6 +1,6 @@
 import axios from "axios";
 import { requestInterceptor, responseInterceptor } from "./interceptors";
-
+import useSwrvTool from "@utils/swrv-tool";
 const http = axios.create({});
 http.defaults.headers.common["Content-Type"] = "application/json";
 
@@ -16,6 +16,9 @@ http.interceptors.request.use(requestInterceptor);
 http.interceptors.response.use(responseInterceptor);
 
 
+
+
+
 export const httpGet = (url, params = {}, headers = {}) =>
   http.get(url, { params, headers });
 
@@ -27,8 +30,22 @@ export const httpPut = (url, data = {}, headers = {}) =>
 
 export const httpDelete = (url, headers = {}) => http.delete(url, { headers });
 
-export const httpInstance = http;
+export const httpSwrvRequest = (
+  requestConfig = {},
+  handleFn = (res) => res,
+  swrvOptions = {},
+) => {
+  const { method = "GET", url, params, data } = requestConfig;
 
-window.http = http;
+  const key = `${method}:${url}:${JSON.stringify(params)}:${JSON.stringify(data)}}`;
+  const { data: swrvData, error } = useSwrvTool(
+    key,
+    () => http.request(requestConfig).then(handleFn),
+    swrvOptions,
+  );
+  return swrvData;
+};
+
+export const httpInstance = http;
 
 export default http;

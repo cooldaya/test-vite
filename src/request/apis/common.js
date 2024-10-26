@@ -2,7 +2,7 @@ import { httpGet } from "../http";
 // 获取天气
 // location 是经纬度坐标
 // icon使用方式 https://icons.qweather.com/usage/#icon-font
-export async function getWeatherInfo(location = "106.5478767,29.5647398") {
+async function getWeatherInfo(location = "106.5478767,29.5647398") {
   const defaultParams = {
     key: "f38a0bccfb384ccca9ef711ee645386c",
     lang: "zh",
@@ -143,4 +143,4 @@ export async function getWeatherInfo(location = "106.5478767,29.5647398") {
   };
 }
 
-getWeatherInfo();
+export default { getWeatherInfo };

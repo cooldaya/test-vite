@@ -1,9 +1,11 @@
 import { httpGet, httpPost } from "../http";
 
-export async function getPosts() {
+async function getPosts() {
   return await httpGet("/posts", { name: "John" });
 }
 
-export async function getPosts2() {
+async function getPosts2() {
   return await httpPost("/posts");
 }
+
+export default { getPosts, getPosts2 };
