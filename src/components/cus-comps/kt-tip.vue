@@ -18,7 +18,7 @@
             <span>{{ title }}</span>
           </div>
           <div
-            class="w-[18px] h-[18px] bg-[url('@/assets/img/p24-1.webp')] kt-bg-full kt-pointer"
+            class="w-[18px] h-[18px] kt-bg-full kt-pointer"
             @click="$emit('close')"
           ></div>
         </div>
