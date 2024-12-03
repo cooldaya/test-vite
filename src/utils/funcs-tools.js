@@ -12,27 +12,28 @@ export const debounce = (fun, delay) => {
   };
 };
 
-
 import pLimit from "p-limit";
 
 const limit = pLimit(5);
+
 /**
  * 批量请求并处理结果
- * @param {*} apis
+ * @param {Array|Map} apis - 要请求的 API 列表
  */
 export default async function patchReq(apis = []) {
   const apisArr = apis instanceof Map ? Array.from(apis.values()) : apis;
-  apisArr.forEach((api) => {
+
+  for (const api of apisArr) {
     const params = api.params || {};
-    limit(() => api.api_pro(params))
-      .then((res) => {
-        const callback = api.callback || console.log;
-        callback(res);
-      })
-      .catch((err) => {
-        console.error(api.api_pro, err);
-      });
-  });
+    try {
+      const res = await limit(() => api.api_pro(params));
+      const callback = api.callback || console.log;
+      callback(res);
+    } catch (err) {
+      console.error('Error with API:', api.api_pro, err);
+      // 可以添加更多的错误处理逻辑
+    }
+  }
 }
 
 /**

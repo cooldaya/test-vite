@@ -2,7 +2,7 @@
   <div class="text-scroll pointer-events-auto h-full w-full overflow-hidden">
     <div
       class="scroll-up"
-      ref="TextScrollElRef"
+      ref="textScrollElRef"
       @mouseenter="opts.controlScroll('paused')"
       @mouseleave="opts.controlScroll('running')"
       @mousewheel="opts.controlScrollbar"
@@ -31,14 +31,15 @@ import anime from "animejs/lib/anime.es.js";
 
 const slots = useSlots();
 
-const TextScrollElRef = ref(null);
+const textScrollElRef = ref(null);
 const props = defineProps({
   aSpeed: {
     // 动画滚动速度，
     default: 30,
     type: Number,
   },
-  sSpeed: { // 滚动条滚动速度
+  sSpeed: {
+    // 滚动条滚动速度
     default: 0.48,
     type: Number,
   },
@@ -59,7 +60,7 @@ const config = reactive({
 const opts = {
   initAnimate: () => {
     if (!config.isOverflow) return;
-    const elStyle = TextScrollElRef.value.style;
+    const elStyle = textScrollElRef.value.style;
     animation = anime({
       targets: position,
       y: -50,
@@ -83,7 +84,7 @@ const opts = {
   // 控制滚动条
   controlScrollbar: (evt) => {
     if (!config.isOverflow) return;
-    const TextScrollEl = TextScrollElRef.value;
+    const textScrollEl = textScrollElRef.value;
     if (evt.deltaY < 0) {
       //当滑轮向上滚动时
       position.y += props.sSpeed;
@@ -93,7 +94,7 @@ const opts = {
     }
     if (position.y > 0) position.y = -50;
     if (position.y < -50) position.y = 0;
-    TextScrollEl.style.transform = "translateY(" + position.y + "%)";
+    textScrollEl.style.transform = "translateY(" + position.y + "%)";
 
     if (animation) {
       animation.seek(animation.duration * (position.y / -50));
@@ -101,10 +102,16 @@ const opts = {
   },
   // 计算是否溢出，计算动画时长，滚动条滚动速度，是否溢出
   calculateConfig: () => {
-    const TextScrollEl = TextScrollElRef.value;
-    const parentEL = TextScrollEl.parentNode;
+    const textScrollEl = textScrollElRef.value;
+    if (!textScrollEl) {
+      // 数据为[] textScrollEl 为 null
+      config.isOverflow = false;
+      config.animationDuration = 100000;
+      return false;
+    }
+    const parentEL = textScrollEl.parentNode;
     const parentHeight = parentEL.clientHeight;
-    const childHeight = TextScrollEl.clientHeight;
+    const childHeight = textScrollEl.clientHeight;
     config.isOverflow = childHeight > parentHeight;
     config.animationDuration = (childHeight * 1000) / props.aSpeed;
     return config.isOverflow;

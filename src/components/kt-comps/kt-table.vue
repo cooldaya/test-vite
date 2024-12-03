@@ -28,7 +28,7 @@
             class="kt-table-content flex flex-col"
             :style="{
               rowGap: gap,
-              paddingBottom: gap,
+              paddingTop: gap,
             }"
           >
             <div
@@ -38,7 +38,7 @@
               @click="$emit('click-row', rowData)"
             >
               <div
-                class="kt-table-cell line-clamp-1 h-full grow overflow-hidden flex"
+                class="kt-table-cell line-clamp-1 h-full grow overflow-hidden flex items-center"
                 v-for="(columnItem, columnIndex) in columns"
                 :key="columnItem.prop + columnIndex"
                 :style="{

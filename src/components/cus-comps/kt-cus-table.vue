@@ -26,7 +26,9 @@ const props = defineProps({
 .s1 {
   :deep(.kt-table) {
     font-size: 12px;
-
+.kt-table-empty {
+      font-size: 56px;
+    }
     .kt-table-header {
       height: 28px;
       background-size: 100% 100%;
