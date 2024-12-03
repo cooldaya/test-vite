@@ -1,7 +1,7 @@
 <template>
   <div class="kt-page">
     <kt-left>
-      <div >
+      <div>
         {{ postsRefData }}
       </div>
     </kt-left>
@@ -10,6 +10,9 @@
         <kt-num-motion :num="tt" />
       </div>
     </kt-right>
+    <div class="kt-full">
+      <kt-video src="/videos/t1.mp4" />
+    </div>
   </div>
 </template>
 
@@ -18,14 +21,11 @@ import page1Refs from "@ref-data/page1-ref";
 import { ref } from "vue";
 const postsRefData = page1Refs.getPostsRefData();
 
-
-const tt = ref(89)
-
+const tt = ref(89);
 
 setInterval(() => {
-  tt.value = Math.floor(Math.random() * 100)
+  tt.value = Math.floor(Math.random() * 100);
 }, 4000);
-
 </script>
 
 <style lang="css" scoped></style>

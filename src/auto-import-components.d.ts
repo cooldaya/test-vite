@@ -23,6 +23,7 @@ declare module 'vue' {
     KtTip: typeof import('./components/cus-comps/kt-tip.vue')['default']
     KtToggleImg: typeof import('./components/kt-comps/kt-toggle-img.vue')['default']
     KtTop: typeof import('./components/kt-comps/kt-top.vue')['default']
+    KtVideo: typeof import('./components/kt-comps/kt-video.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

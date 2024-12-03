@@ -25,3 +25,19 @@
   /* 占满剩余空间，切不会被内容撑大 */
   @apply min-h-0 flex-1 overflow-hidden;
 }
+
+.kt-fx-center{
+  @apply flex flex-row items-center;
+}
+
+.kt-fy-center{
+  @apply flex flex-col items-center;
+}
+
+.kt-tlb {
+  /* kt-text-line-base */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
