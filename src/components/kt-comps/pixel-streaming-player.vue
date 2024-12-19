@@ -31,11 +31,11 @@ const STATE = {
 const initPixelStreaming = () => {
   // 控制UI样式
   const PixelStreamingApplicationStyles = new PixelStreamingApplicationStyle({
-    // customStyles: {
-    //   "#uiFeatures": {
-    //     display: "none",
-    //   },
-    // },
+    customStyles: {
+      "#uiFeatures": {
+        display: "none",
+      },
+    },
   });
   PixelStreamingApplicationStyles.applyStyleSheet();
 

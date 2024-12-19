@@ -16,7 +16,7 @@ if (store.isPixel) {
 </script>
 
 <template>
-  <div id="app" class="pointer-events-none bg-[#b2bec3]" v-loading="isLoading">
+  <div id="app" class="pointer-events-none bg-[#b2bec3] text-[#fffdfe]" v-loading="isLoading">
     <router-view></router-view>
   </div>
 </template>
