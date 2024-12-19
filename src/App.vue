@@ -1,16 +1,11 @@
 <script setup>
 import "@/utils/reload-imgs";
-import { ref } from "vue";
+import store from '@/store'
 
-const isLoading = ref(true);
-
-setTimeout(() => {
-  isLoading.value = false;
-},600);
 </script>
 
 <template>
-  <div id="app" class="pointer-events-none bg-[#b2bec3]" v-loading="isLoading">
+  <div id="app" class="pointer-events-none bg-[#b2bec3]" v-loading="store.globalLoading">
     <router-view></router-view>
   </div>
 </template>

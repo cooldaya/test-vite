@@ -24,13 +24,21 @@ const zipName = path.basename(__dirname) + "-" + formatDate();
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    vue(),
+    vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => /^kt-cus-/.test(tag),
+        },
+      },
+    }),
+    // 自动导入组件
     AutoImportComponents({
       dirs: ["src/components/cus-comps", "src/components/kt-comps"],
       extensions: ["vue"],
       // 配置文件生成位置
       dts: "src/auto-import-components.d.ts",
     }),
+    // 打包zip文件
     zipPack({
       inDir: "dist",
       outDir: "dist-zip",
@@ -48,29 +56,13 @@ export default defineConfig({
         replacement: path.resolve(projectRootDir, "src/request/apis"),
       },
       {
-        find: "@utils",
-        replacement: path.resolve(projectRootDir, "src/utils"),
-      },
-      {
-        find: "@hooks",
-        replacement: path.resolve(projectRootDir, "src/hooks"),
-      },
-      {
         find: "@lib-comps",
         replacement: path.resolve(projectRootDir, "src/components/lib-comps"),
-      },
-      {
-        find: "@assets",
-        replacement: path.resolve(projectRootDir, "src/assets"),
       },
       {
         find: "@ref-data",
         replacement: path.resolve(projectRootDir, "src/request/ref-data"),
       },
-      {
-        find:"@request",
-        replacement: path.resolve(projectRootDir, "src/request"),
-      }
     ],
   },
   server: {

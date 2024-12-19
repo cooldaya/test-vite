@@ -29,7 +29,6 @@
 <script setup>
 import { useRouter } from "vue-router";
 import { getCompImg } from "@/utils/get-assets";
-import { sendToUE, watchUEEvents } from "@/ue";
 import { ref } from "vue";
 
 const router = useRouter();
@@ -68,21 +67,11 @@ const pageRoutes = router
 const count = ref(0);
 const opts = {
   changeRoute(route) {
-    sendToUE("changeRoute", { text: route.path });
+    
   },
 };
 
-const ueEvents = {
-  "ue-change-count": (data = {}) => {
-    const { text } = data;
-    if (text === "plus") {
-      count.value++;
-    } else {
-      count.value--;
-    }
-  },
-};
-watchUEEvents(ueEvents);
+
 </script>
 
 <style></style>

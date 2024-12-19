@@ -1,4 +1,4 @@
-import { httpSwrvRequest } from "@request/http";
+import { httpSwrvRequest } from "@/request/http";
 
 // 直接获取posts ref数据
 const getPostsRefData = () =>
