@@ -30,6 +30,7 @@ export const httpPut = (url, data = {}, headers = {}) =>
 
 export const httpDelete = (url, headers = {}) => http.delete(url, { headers });
 
+// 使用swrv请求
 export const httpSwrvRequest = (
   requestConfig = {},
   handleFn = (res) => res,

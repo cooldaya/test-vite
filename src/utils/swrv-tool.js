@@ -1,6 +1,8 @@
 import useSWRV from "swrv";
 import LocalStorageCache from "swrv/dist/cache/adapters/localStorage";
 
+
+// 配置全局的swrv缓存
 export default function useSwrvTool(key, fetcher, options) {
   const defaultOPtions = {
     dedupingInterval: 300,
