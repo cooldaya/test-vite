@@ -74,7 +74,6 @@ export default defineConfig({
     ],
   },
   server: {
-    https: true,   // 需要开启https服务
     port: 9983,
     host: "0.0.0.0",
     proxy: {
