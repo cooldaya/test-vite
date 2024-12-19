@@ -1,12 +1,18 @@
 <script setup>
 import "@/utils/reload-imgs";
 import { ref } from "vue";
+import store from "@/meta";
+import { onPixelLoaded } from "@/ue";
 
 const isLoading = ref(true);
 
-setTimeout(() => {
+if (store.isPixel) {
+  onPixelLoaded(() => {
+    isLoading.value = false;
+  });
+}else{
   isLoading.value = false;
-},600);
+}
 </script>
 
 <template>

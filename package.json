@@ -9,6 +9,8 @@
     "preview": "vite build & vite preview"
   },
   "dependencies": {
+    "@epicgames-ps/lib-pixelstreamingfrontend-ue5.2": "^0.5.8",
+    "@epicgames-ps/lib-pixelstreamingfrontend-ui-ue5.2": "^0.4.9",
     "@vueuse/core": "^10.11.0",
     "animate.css": "^4.1.1",
     "animejs": "^3.2.2",

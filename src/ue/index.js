@@ -4,9 +4,11 @@ import { onBeforeUnmount } from "vue";
 
 export const emitter = mitt();
 
+let connectPixel = false;
+
 // 向UE发送消息
 /**
- * 
+ *
  * @param {*} type we-event-name
  * @param {*} data {text:1}
  */
@@ -16,17 +18,22 @@ export const sendToUE = (type, data = {}) => {
     data,
   };
 
-  console.log("WebToUE --web发送到UE数据-->", params); 
-  ue5("WebToUE", params);
+  if (connectPixel) {
+    emitter.emit("send-pixel-msg", params); // 发送数据到像素流
+    console.log("web发送数据到像素流-->", params);
+  } else {
+    ue5("WebToUE", params); // 发送数据到UE客户端
+    console.log("web发送数据到UE客户端-->", params);
+  }
 };
 
 // 提供给UE调用的接口
 /**
- * 
+ *
  * @param {*} _params {type: string, data: object}
  */
 ue.interface.UEemit = function (_params) {
-  console.log('UEemit --UE发送到web数据-->', _params);
+  console.log("UEemit --UE发送到web数据-->", _params);
 
   let params = _params;
   if (typeof _params === "string") params = JSON.parse(_params);
@@ -37,7 +44,7 @@ ue.interface.UEemit = function (_params) {
 
 // 监听UE消息
 /**
- * 
+ *
  * @param {*} events {'ue-event-name':(data)=>{}}
  */
 export const watchUEEvents = (events) => {
@@ -52,8 +59,26 @@ export const watchUEEvents = (events) => {
   });
 };
 
+const onPixelLoadedCallbacks = [];
+export const onPixelLoaded = (callback) => {
+  onPixelLoadedCallbacks.push(callback);
+};
 
+export const connectPixelStreaming = (pixelStreamingInstance) => {
+  const psi = pixelStreamingInstance;
+  if (!psi || !psi.setUeWebEmitter || !psi.sendMsgToUE)
+    return console.warn("pixelStreamingInstance is not valid");
+  connectPixel = true;
+  pixelStreamingInstance.setUeWebEmitter(emitter);
+  emitter.on("receive-pixel-msg", ue.interface.UEemit); // 监听pixel-msg事件，处理时替换成让UE发送消息的接口
+  emitter.on("send-pixel-msg", psi.sendMsgToUE); // 发送数据到像素流
+  // 监听像素流加载完成
+  emitter.on("pixel-loaded", () => {
+    onPixelLoadedCallbacks.forEach((callback) => callback?.());
+  });
+};
 
-
-
-
+window.testAPI = {
+  sendToUE,
+  watchUEEvents,
+};

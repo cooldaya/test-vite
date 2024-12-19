@@ -1,6 +1,6 @@
 <template>
   <div class="kt-page relative">
-    <div class="kt-page absolute left-0 top-0 z-[1]">
+    <div class="kt-page absolute left-0 top-0 z-[1]" v-if="META.isPixel">
       <scene />
     </div>
     <div class="kt-full big-screen absolute left-0 top-0 z-[2]">
@@ -20,6 +20,7 @@
 import autofit from "autofit.js";
 import { onMounted } from "vue";
 import scene from "./scene.vue";
+import META from "@/meta.js";
 
 onMounted(() => {
   autofit.init({
@@ -31,8 +32,4 @@ onMounted(() => {
 });
 </script>
 
-<style lang="css" scoped>
-
-
-
-</style>
+<style lang="css" scoped></style>
