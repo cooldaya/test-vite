@@ -24,7 +24,7 @@ const directive = {
     Object.assign(loadingMask.style, {
       position: "absolute",
       inset: "0",
-      backgroundColor: "rgba(0, 0, 0, 0.2)",
+      backgroundColor: "#353b48",
       display: "flex",
       zIndex: "1000",
       pointerEvents: "auto",

@@ -1,0 +1,20 @@
+/* 1.淡出淡入 */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* 2.缩放效果 */
+.scale-enter-active,
+.scale-leave-active {
+  transition: all 0.3s ease;
+}
+.scale-enter-from,
+.scale-leave-to {
+  opacity: 0;
+  transform: scale(1.04);
+}

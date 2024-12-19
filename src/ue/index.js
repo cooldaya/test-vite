@@ -2,7 +2,7 @@ import ue, { ue5 } from "./linkUE";
 import mitt from "mitt";
 import { onBeforeUnmount } from "vue";
 
-const emitter = mitt();
+export const emitter = mitt();
 
 // 向UE发送消息
 /**
@@ -51,3 +51,9 @@ export const watchUEEvents = (events) => {
     }
   });
 };
+
+
+
+
+
+

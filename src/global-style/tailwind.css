@@ -3,6 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .kt-full {
   @apply h-full w-full;
 }
@@ -26,11 +27,11 @@
   @apply min-h-0 flex-1 overflow-hidden;
 }
 
-.kt-fx-center{
+.kt-fx-center {
   @apply flex flex-row items-center;
 }
 
-.kt-fy-center{
+.kt-fy-center {
   @apply flex flex-col items-center;
 }
 
@@ -40,4 +41,3 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-

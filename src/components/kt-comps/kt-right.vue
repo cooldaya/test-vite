@@ -1,15 +1,10 @@
 <template>
-  <div
-    class="animate__animated kt-right  animate__bounceInRight"
-    @animationend="remoteAnimate"
-  >
+  <div class="kt-right">
     <slot></slot>
   </div>
 </template>
 
-<script setup>
-import { remoteAnimate } from "@/utils/dom-tool"; // 防止与autofit 一起使用是，会导致页面变模糊
-</script>
+<script setup></script>
 
 <style lang="less" scoped>
 .kt-right {
@@ -20,6 +15,10 @@ import { remoteAnimate } from "@/utils/dom-tool"; // 防止与autofit 一起使�
   width: 400px;
   border: solid 1px #ccc;
   pointer-events: auto;
+  overflow: hidden;
+
+
+  
   // 自动高度时，注释
   bottom: 100px;
 }
