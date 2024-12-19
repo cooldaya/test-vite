@@ -16,7 +16,7 @@ export const sendToUE = (type, data = {}) => {
     data,
   };
 
-  console.log("WebToUE --web发送到UE数据-->", params);
+  console.log("WebToUE --web发送到UE数据-->", params); 
   ue5("WebToUE", params);
 };
 
