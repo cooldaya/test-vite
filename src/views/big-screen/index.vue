@@ -1,8 +1,8 @@
 <template>
   <div class="kt-page relative">
-    <div class="kt-page absolute left-0 top-0 z-[1]">
+    <!-- <div class="kt-page absolute left-0 top-0 z-[1]">
       <scene />
-    </div>
+    </div> -->
     <div class="kt-full big-screen absolute left-0 top-0 z-[2]">
       <cus-header> top </cus-header>
       <!-- <router-view></router-view> -->
