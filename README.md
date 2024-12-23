@@ -1,6 +1,13 @@
 # Vue 3 + Vite
 
-当前是 `web-three` 分支 Vue 纯前端
+当前是 `web-three` 分支 Vue 纯前端，克隆当前分支，并改名项目名为 `new-project`
+1. 克隆当前分支 
+   - `git clone -b web-three https://github.com/cooldaya/test-vite.git new-project`
+2. 重命名分支名称
+   - `git branch -m web-three main`
+3. 设置新项目远程仓库地址
+   - `git remote set-url origin https://github.com/kt-project/new-project.git`
+
 
 ## lib 功能包含
 
