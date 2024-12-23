@@ -3,6 +3,14 @@
 - 接入 `web-ue` 数据交互， 默认
 - 接入 `web-ue像素流` 数据交互，像素流接入
 
+1. 克隆当前分支 
+   - `git clone -b web-ue https://github.com/cooldaya/test-vite.git new-project`
+2. 重命名分支名称
+   - `git branch -m web-ue main`
+3. 设置新项目远程仓库地址
+   - `git remote set-url origin https://github.com/kt-project/new-project.git`
+
+
 # 播放UE5.2 像素流demo
 
 文章查看：[Vue3 嵌入UE5.2像素流-数据通信-CSDN博客](https://blog.csdn.net/qq_39593914/article/details/143430069)
