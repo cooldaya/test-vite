@@ -59,10 +59,6 @@ export default defineConfig({
         find: "@lib-comps",
         replacement: path.resolve(projectRootDir, "src/components/lib-comps"),
       },
-      {
-        find: "@ref-data",
-        replacement: path.resolve(projectRootDir, "src/request/ref-data"),
-      },
     ],
   },
   server: {

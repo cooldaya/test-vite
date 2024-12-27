@@ -59,7 +59,6 @@ function cameraAnimation({
         callback && callback();
       }
     });
-
   t1.delay(delayTime).start();
 
   const t2 = new Bol3D.TWEEN.Tween(CACHE.container.orbitControls.target)
@@ -73,10 +72,10 @@ function cameraAnimation({
     )
     .onUpdate(() => {})
     .onComplete(() => {
-      count++;
+      count++; 
       if (count == 2) {
-        CACHE.container.orbitControls.enabled = true;
-        STATE.isAnimating = false;
+        CACHE.container.orbitControls.enabled = true;  
+        STATE.isAnimating = false;  
         callback && callback();
       }
     });
