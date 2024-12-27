@@ -8,6 +8,8 @@
    - `git branch -m web main`
 3. 设置新项目远程仓库地址
    - `git remote set-url origin https://github.com/kt-project/new-project.git`
+4. 提交项目到远程仓库
+   - `git push origin HEAD`
 
 
 ## lib 功能包含

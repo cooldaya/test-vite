@@ -3,7 +3,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 .kt-full {
   @apply h-full w-full;
 }
@@ -15,7 +14,7 @@
 }
 
 .kt-bg-full {
-  @apply bg-cover bg-center bg-no-repeat;
+  @apply bg-[length:100%_100%] bg-center bg-no-repeat;
 }
 
 .kt-border {
@@ -35,9 +34,14 @@
   @apply flex flex-col items-center;
 }
 
+.kt-pointer {
+  @apply pointer-events-auto cursor-pointer;
+}
+
 .kt-tlb {
   /* kt-text-line-base */
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: transparent;
 }

@@ -48,29 +48,9 @@ export default defineConfig({
         replacement: path.resolve(projectRootDir, "src/request/apis"),
       },
       {
-        find: "@utils",
-        replacement: path.resolve(projectRootDir, "src/utils"),
-      },
-      {
-        find: "@hooks",
-        replacement: path.resolve(projectRootDir, "src/hooks"),
-      },
-      {
         find: "@lib-comps",
         replacement: path.resolve(projectRootDir, "src/components/lib-comps"),
       },
-      {
-        find: "@assets",
-        replacement: path.resolve(projectRootDir, "src/assets"),
-      },
-      {
-        find: "@ref-data",
-        replacement: path.resolve(projectRootDir, "src/request/ref-data"),
-      },
-      {
-        find:"@request",
-        replacement: path.resolve(projectRootDir, "src/request"),
-      }
     ],
   },
   server: {

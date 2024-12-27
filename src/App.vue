@@ -1,12 +1,19 @@
 <script setup>
 import "@/utils/reload-imgs";
 import { ref } from "vue";
+import { onMounted } from "vue";
+import { useRouter } from "vue-router";
 
 const isLoading = ref(true);
 
 setTimeout(() => {
   isLoading.value = false;
-},600);
+}, 600);
+
+onMounted(() => {
+  const router = useRouter();
+  router.push("/big-screen/page1");
+});
 </script>
 
 <template>
