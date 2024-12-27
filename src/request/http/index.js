@@ -1,6 +1,5 @@
 import axios from "axios";
 import { requestInterceptor, responseInterceptor } from "./interceptors";
-import useSwrvTool from "@utils/swrv-tool";
 const http = axios.create({});
 http.defaults.headers.common["Content-Type"] = "application/json";
 
@@ -9,7 +8,7 @@ const { DEV } = import.meta.env;
 if (DEV) {
   http.defaults.baseURL = "/kt-api";
 } else {
-  http.defaults.baseURL = window._config.base_url;
+  http.defaults.baseURL = window.kt_config.base_url;
 }
 
 http.interceptors.request.use(requestInterceptor);
@@ -29,22 +28,6 @@ export const httpPut = (url, data = {}, headers = {}) =>
   http.put(url, data, { headers });
 
 export const httpDelete = (url, headers = {}) => http.delete(url, { headers });
-
-export const httpSwrvRequest = (
-  requestConfig = {},
-  handleFn = (res) => res,
-  swrvOptions = {},
-) => {
-  const { method = "GET", url, params, data } = requestConfig;
-
-  const key = `${method}:${url}:${JSON.stringify(params)}:${JSON.stringify(data)}}`;
-  const { data: swrvData, error } = useSwrvTool(
-    key,
-    () => http.request(requestConfig).then(handleFn),
-    swrvOptions,
-  );
-  return swrvData;
-};
 
 export const httpInstance = http;
 

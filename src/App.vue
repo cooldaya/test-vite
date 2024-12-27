@@ -1,22 +1,31 @@
 <script setup>
 import "@/utils/reload-imgs";
-import { ref } from "vue";
 import store from "@/meta";
 import { onPixelLoaded } from "@/ue";
+import { onMounted } from "vue";
+import { useRouter } from "vue-router";
 
-const isLoading = ref(true);
 
 if (store.isPixel) {
   onPixelLoaded(() => {
-    isLoading.value = false;
+    store.globalLoading = false;
   });
-}else{
-  isLoading.value = false;
+} else {
+  store.globalLoading = false;
 }
+
+onMounted(() => {
+  const router = useRouter();
+  router.push("/big-screen/page1");
+});
 </script>
 
 <template>
-  <div id="app" class="pointer-events-none bg-[#b2bec3] text-[#fffdfe]" v-loading="isLoading">
+  <div
+    id="app"
+    class="pointer-events-none bg-[#b2bec3] text-[#fffdfe]"
+    v-loading="store.globalLoading"
+  >
     <router-view></router-view>
   </div>
 </template>

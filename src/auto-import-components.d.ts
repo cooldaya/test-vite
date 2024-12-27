@@ -16,6 +16,7 @@ declare module 'vue' {
     KtDateTimer: typeof import('./components/kt-comps/kt-date-timer.vue')['default']
     KtLeft: typeof import('./components/kt-comps/kt-left.vue')['default']
     KtNumMotion: typeof import('./components/kt-comps/kt-num-motion.vue')['default']
+    KtPixelStreamingPlayer: typeof import('./components/kt-comps/kt-pixel-streaming-player.vue')['default']
     KtRight: typeof import('./components/kt-comps/kt-right.vue')['default']
     KtRtspPlayer: typeof import('./components/cus-comps/kt-rtsp-player.vue')['default']
     KtScale: typeof import('./components/kt-comps/kt-scale.vue')['default']

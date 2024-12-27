@@ -2,10 +2,7 @@
   <div class="kt-page">
     <kt-left>
       <div>
-        <div v-for="(item, index) in postsRefData" class="mt-[20px]">
-          <div class="bg-[#f5f5f5]">{{ item.title }}</div>
-          <div class="kt-border">{{ item.body }}</div>
-        </div>
+        ss
       </div>
     </kt-left>
     <kt-right>
@@ -24,9 +21,8 @@
 </template>
 
 <script setup>
-import page1Refs from "@ref-data/page1-ref";
 import { ref } from "vue";
-const postsRefData = page1Refs.getPostsRefData();
+
 
 const tt = ref(89);
 

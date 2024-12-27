@@ -15,6 +15,10 @@ const props = defineProps({
     type: String,
     default: "ws://127.0.0.1:1235",
   },
+  connectPixelStreamingCallback: {
+    type: Function,
+    required: true,
+  },
 });
 
 const loading = ref(true);
@@ -91,8 +95,7 @@ onMounted(() => {
   initPixelStreaming();
 });
 
-// 导出接口
-defineExpose({
+const exportInstance = {
   // 像素流发送消息给 UE
   sendMsgToUE: (payload) => {
     if (!STATE.stream) return;
@@ -102,7 +105,14 @@ defineExpose({
   setUeWebEmitter: (emitter) => {
     ueWebEmitter = emitter;
   },
-});
+};
+
+// 导出接口
+defineExpose(exportInstance);
+
+props.connectPixelStreamingCallback(exportInstance)
+
+
 </script>
 
 <template>

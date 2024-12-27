@@ -1,6 +1,7 @@
 // 可配置的文件
-window._config = {
+window.kt_config = {
   base_url: "http://localhost:3000",
+  ss:"ws://10.1.10.12:1235"
 };
 
 window.access_code =

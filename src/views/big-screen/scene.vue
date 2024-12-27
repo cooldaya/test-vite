@@ -1,25 +1,17 @@
 <template>
   <div class="kt-page kt-flex-center">
-    <pixel-streaming-player ss="ws://10.1.10.40:1235" ref="playerInstanceRef"> </pixel-streaming-player>
+    <kt-pixel-streaming-player
+      :ss="ss"
+      :connectPixelStreamingCallback="connectPixelStreaming"
+    >
+    </kt-pixel-streaming-player>
   </div>
 </template>
 
 <script setup>
-import { onMounted, ref } from "vue";
-import { connectPixelStreaming, watchUEEvents } from "@/ue";
-const playerInstanceRef = ref(null);
+import { connectPixelStreaming } from "@/ue";
 
-onMounted(() => {
-  // 是否链接使用像素流模式、否则使用UE内嵌网页模式
-  console.log('链接像素流模式')
-  connectPixelStreaming(playerInstanceRef.value);
-});
-
-watchUEEvents({
-  jumpurl: (data) => {
-    console.log(data);
-  },
-});
+const ss = window.kt_config.ss;
 </script>
 
 <style lang="css" scoped>
