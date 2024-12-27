@@ -8,7 +8,7 @@ const { DEV } = import.meta.env;
 if (DEV) {
   http.defaults.baseURL = "/kt-api";
 } else {
-  http.defaults.baseURL = window._config.base_url;
+  http.defaults.baseURL = window.kt_config.base_url;
 }
 
 http.interceptors.request.use(requestInterceptor);

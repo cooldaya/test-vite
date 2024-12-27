@@ -1,13 +1,11 @@
 <script setup>
 import "@/utils/reload-imgs";
-import { ref } from "vue";
+import store from "@/store";
 import { onMounted } from "vue";
 import { useRouter } from "vue-router";
 
-const isLoading = ref(true);
-
 setTimeout(() => {
-  isLoading.value = false;
+  store.globalLoading = false;
 }, 600);
 
 onMounted(() => {
@@ -17,7 +15,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <div id="app" class="pointer-events-none bg-[#b2bec3]" v-loading="isLoading">
+  <div
+    id="app"
+    class="pointer-events-none bg-[#b2bec3]"
+    v-loading="store.globalLoading"
+  >
     <router-view></router-view>
   </div>
 </template>
