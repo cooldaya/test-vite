@@ -5,10 +5,9 @@
 
 1. 克隆当前分支 
    - `git clone -b web-ue https://github.com/cooldaya/test-vite.git new-project`
-2. 重命名分支名称
-   - `git branch -m web-ue main`
-3. 设置新项目远程仓库地址
-   - `git remote set-url origin https://github.com/kt-project/new-project.git`
+2. 设置新项目远程仓库地址
+   - `git remote remove origin`
+   - `git remote add origin <你的远程仓库地址>`
 
 
 # 播放UE5.2 像素流demo
