@@ -25,7 +25,6 @@ declare module 'vue' {
     KtToggleImg: typeof import('./components/kt-comps/kt-toggle-img.vue')['default']
     KtTop: typeof import('./components/kt-comps/kt-top.vue')['default']
     KtVideo: typeof import('./components/kt-comps/kt-video.vue')['default']
-    PixelStreamingPlayer: typeof import('./components/kt-comps/pixel-streaming-player.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

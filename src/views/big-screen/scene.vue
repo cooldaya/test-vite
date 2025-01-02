@@ -10,6 +10,7 @@
 
 <script setup>
 import { connectPixelStreaming } from "@/ue";
+import { getSSUrl } from "@/ue/tools";
 
 const ss = window.kt_config.ss;
 </script>

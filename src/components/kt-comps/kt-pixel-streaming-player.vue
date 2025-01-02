@@ -19,6 +19,10 @@ const props = defineProps({
     type: Function,
     required: true,
   },
+  getSSUrl: {
+    type: Function,
+    default: null,
+  },
 });
 
 const loading = ref(true);
@@ -32,7 +36,7 @@ const STATE = {
   application: null,
 };
 
-const initPixelStreaming = () => {
+const initPixelStreaming = (ssUrl) => {
   // 控制UI样式
   const PixelStreamingApplicationStyles = new PixelStreamingApplicationStyle({
     customStyles: {
@@ -47,7 +51,7 @@ const initPixelStreaming = () => {
   const config = new Config({
     useUrlParams: true,
     initialSettings: {
-      ss: props.ss, // 流媒体服务器地址
+      ss: ssUrl || props.ss, // 流媒体服务器地址
       AutoConnect: true, // 自动连接：如果为 true，应用启动时会自动连接到流媒体服务器。
       AutoPlayVideo: true, // 自动播放视频：如果为 true，在连接成功后视频将自动播放。
       StartVideoMuted: true, // 启动时静音：如果为 true，视频在开始播放时会处于静音状态。
@@ -59,6 +63,8 @@ const initPixelStreaming = () => {
       HoveringMouseMode: true, // 鼠标悬停模式：如果为 true，激活鼠标悬停模式以增强 UI 交互体验。
       SuppressBrowserKeys: false, // 抑制浏览器按键：如果为 true，将抑制浏览器的某些键盘输入，以防止干扰应用内的控制。
       MatchViewportRes: true, // 匹配视窗分辨率：如果为 true，将调整视频分辨率以匹配视窗分辨率。
+      KeyboardInput: false, // 键盘输入：如果为 true，允许使用键盘进行控制
+      ControlsQuality: false, // 画质控制器,关闭，画质由对方控制
     },
   });
 
@@ -92,6 +98,11 @@ const initPixelStreaming = () => {
 };
 
 onMounted(() => {
+  if (props.getSSUrl) {
+    return props.getSSUrl().then((res) => {
+      initPixelStreaming(res.ss);
+    });
+  }
   initPixelStreaming();
 });
 
@@ -110,9 +121,7 @@ const exportInstance = {
 // 导出接口
 defineExpose(exportInstance);
 
-props.connectPixelStreamingCallback(exportInstance)
-
-
+props.connectPixelStreamingCallback(exportInstance);
 </script>
 
 <template>

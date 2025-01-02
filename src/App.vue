@@ -1,6 +1,6 @@
 <script setup>
 import "@/utils/reload-imgs";
-import store from "@/meta";
+import store from "@/store";
 import { onPixelLoaded } from "@/ue";
 import { onMounted } from "vue";
 import { useRouter } from "vue-router";
