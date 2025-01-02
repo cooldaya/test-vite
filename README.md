@@ -23,6 +23,8 @@
 ## web-ue像素流
 - web端使用 `pixel-streaming-player` 组件 并调用 `connectPixelStreaming(playerInstanceRef.value);` 切换到与像素流通信，通信依旧使用ue文件夹下的index提供的函数
 - ue客户端使用 stream 发送事件 `handle_responses`,web端使用 `stream.emitUIInteraction` 向 `像素流` 发送数据
+- 可动态获取像素流地址 async getSSUrl ==> {ss}，在多开像素流时有用
+- bug，请不要将scene像素流组件放入 autofit 自适应容器中，会出未知问题，像素流已经有自适应功能
 
 
 ## lib 功能包含
