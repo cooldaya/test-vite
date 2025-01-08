@@ -49,41 +49,48 @@ const apis = [
 
 patchReq(apis);
  */
-
 import { onBeforeUnmount } from "vue";
 const timerCallbacks = {};
-window.timerCallbacks = timerCallbacks;
 
 // 组件中使用
-export function intervalCallFunc(func, interval = 5000, isAutoDestroy = true) {
+export function intervalCallFunc(
+  func,
+  interval = window?.kt_config?.refresh_interval || 1000 * 60,
+  isAutoDestroy = true,
+) {
   let timerInfo = timerCallbacks[interval];
   if (!timerInfo) {
     timerInfo = {
       callbacks: new Set(),
-      running: false,
       timer: null,
     };
     timerInfo.timer = setInterval(() => {
-      requestIdleCallback(() => {
-        Array.from(timerInfo.callbacks).forEach(
-          (funcItem) => {
-            funcItem();
-          },
+      if (window.requestIdleCallback) {
+        requestIdleCallback(
+          () => timerInfo.callbacks.forEach((funcItem) => funcItem()),
           { timeout: 1000 },
         );
-      });
-    }, interval * 1);
-    timerInfo.running = true;
+      } else {
+        timerInfo.callbacks.forEach((funcItem) => funcItem());
+      }
+    }, interval);
+
     timerCallbacks[interval] = timerInfo;
   }
   timerInfo.callbacks.add(func);
-  if (!isAutoDestroy) return;
-  onBeforeUnmount(() => {
+
+  const destroyFunc = () => {
     timerInfo.callbacks.delete(func);
     if (timerInfo.callbacks.size === 0) {
       clearInterval(timerInfo.timer);
-      timerInfo.running = false;
       delete timerCallbacks[interval];
     }
-  });
+  };
+  if (isAutoDestroy) {
+    onBeforeUnmount(() => {
+      destroyFunc();
+    });
+  }
+
+  return destroyFunc;
 }
