@@ -11,10 +11,6 @@ import {
 import { onMounted } from "vue";
 import { ref } from "vue";
 const props = defineProps({
-  ss: {
-    type: String,
-    default: "ws://127.0.0.1:1235",
-  },
   connectPixelStreamingCallback: {
     type: Function,
     required: true,
@@ -51,7 +47,7 @@ const initPixelStreaming = (ssUrl) => {
   const config = new Config({
     useUrlParams: true,
     initialSettings: {
-      ss: ssUrl || props.ss, // 流媒体服务器地址
+      ss: ssUrl, // 流媒体服务器地址
       AutoConnect: true, // 自动连接：如果为 true，应用启动时会自动连接到流媒体服务器。
       AutoPlayVideo: true, // 自动播放视频：如果为 true，在连接成功后视频将自动播放。
       StartVideoMuted: true, // 启动时静音：如果为 true，视频在开始播放时会处于静音状态。
@@ -98,12 +94,9 @@ const initPixelStreaming = (ssUrl) => {
 };
 
 onMounted(() => {
-  if (props.getSSUrl) {
-    return props.getSSUrl().then((res) => {
-      initPixelStreaming(res.ss);
-    });
-  }
-  initPixelStreaming();
+  props.getSSUrl().then((ssUrl) => {
+    initPixelStreaming(ssUrl);
+  });
 });
 
 const exportInstance = {

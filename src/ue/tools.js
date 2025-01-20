@@ -4,19 +4,16 @@ const ssServerApis = {
   startServer: `${window.kt_config.ss_server}/api/startServer`,
 };
 
-export async function getSSUrl() {
-  let ss = window.kt_config.ss;
-  const res = await httpGet(ssServerApis.startServer);
+export const getSSUrl = async () => {
+  const ktConfig = window.kt_config;
+  let ss = ktConfig.ss;
+  if (!ktConfig.multipleSs) return ss;
+  const apiUrl = `${ktConfig.multipleSsServer}/api/startServer`;
+  const res = await (await fetch(apiUrl)).json();
   if (res.code !== 200) {
-    alert(res.code);
-    return {
-      ss,
-    };
+    alert(res.message);
+    return ss;
   }
-  const url = "ws://" + res?.data?.data?.ipAddress;
-  ss = url;
-
-  return {
-    ss,
-  };
-}
+  ss = "ws://" + (res?.data?.data?.ipAddress || res?.data?.ipAddress);
+  return ss;
+};

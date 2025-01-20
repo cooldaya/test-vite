@@ -1,7 +1,7 @@
 <template>
   <div class="kt-page kt-flex-center">
     <kt-pixel-streaming-player
-      :ss="ss"
+      :getSSUrl="getSSUrl"
       :connectPixelStreamingCallback="connectPixelStreaming"
     >
     </kt-pixel-streaming-player>
@@ -12,7 +12,6 @@
 import { connectPixelStreaming } from "@/ue";
 import { getSSUrl } from "@/ue/tools";
 
-const ss = window.kt_config.ss;
 </script>
 
 <style lang="css" scoped>
