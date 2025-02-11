@@ -10,7 +10,7 @@
       <div>
         <slot></slot>
       </div>
-      <div v-if="config.isOverflow">
+      <div v-if="config.isOverflow" :style="{marginTop:props.mt}">
         <slot></slot>
       </div>
     </div>
@@ -25,7 +25,6 @@ import {
   useSlots,
   watch,
   nextTick,
-  watchEffect,
 } from "vue";
 import anime from "animejs/lib/anime.es.js";
 
@@ -43,6 +42,10 @@ const props = defineProps({
     default: 0.48,
     type: Number,
   },
+  mt:{
+    default:'0px',
+    type:String
+  }
 });
 //两个速度，和滚动条滚动速度
 

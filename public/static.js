@@ -1,9 +1,10 @@
 // 可配置的文件
 window.kt_config = {
   base_url: "http://127.0.0.1:3000",
+  use_pixel:true,
   ss: "ws://127.0.0.1:1235",
   multipleSsServer:'http://127.0.0.1:89',
-  multipleSs:true
+  multipleSs:true,
 };
 
 window.access_code =
