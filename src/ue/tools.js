@@ -1,9 +1,3 @@
-import { httpGet } from "@/request/http";
-
-const ssServerApis = {
-  startServer: `${window.kt_config.ss_server}/api/startServer`,
-};
-
 export const getSSUrl = async () => {
   const ktConfig = window.kt_config;
   let ss = ktConfig.ss;
