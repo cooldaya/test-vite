@@ -9,5 +9,6 @@ export const getSSUrl = async () => {
     return ss;
   }
   ss = "ws://" + (res?.data?.data?.ipAddress || res?.data?.ipAddress);
+  new WebSocket(`ws://127.0.0.1:89/ws/${res.data.streamerPort}`); // 让后端去监听 ws 的状态
   return ss;
 };
