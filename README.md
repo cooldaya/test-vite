@@ -3,11 +3,8 @@
 - 接入 `web-ue` 数据交互， 默认
 - 接入 `web-ue像素流` 数据交互，像素流接入
 
-1. 克隆当前分支 
-   - `git clone -b web-ue https://github.com/cooldaya/test-vite.git new-project`
-2. 设置新项目远程仓库地址
-   - `git remote remove origin`
-   - `git remote add origin <你的远程仓库地址>`
+后去当前分支代码: 
+   - `npx degit cooldaya/test-vite#web-ue new-project`
 
 
 # 播放UE5.2 像素流demo
