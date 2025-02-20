@@ -77,8 +77,3 @@ export const connectPixelStreaming = (pixelStreamingInstance) => {
     onPixelLoadedCallbacks.forEach((callback) => callback?.());
   });
 };
-
-window.testAPI = {
-  sendToUE,
-  watchUEEvents,
-};
