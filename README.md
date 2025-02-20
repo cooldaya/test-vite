@@ -1,10 +1,12 @@
 # Vue 3 + Vite
-当前为 `web-ue` 分支，在meta.js中配置 `isPixel` 为 `true` 即可切换到像素流通信方式：
-- 接入 `web-ue` 数据交互， 默认
-- 接入 `web-ue像素流` 数据交互，像素流接入
 
-后去当前分支代码: 
-   - `npx degit cooldaya/test-vite#web-ue new-project`
+获取当前分支代码: 
+   - `npx degit cooldaya/test-vite#web-web new-project`
+
+## 当前项目功能
+   当前为 `web-ue` 分支，在`/public/static.js`中配置 `use_pixel` 为 `true` 即可切换到像素流通信方式：
+   - 接入 `web-ue` 数据交互， 像素流接入
+   - 接入 `web-ue像素流` 数据交互，默认
 
 
 # 播放UE5.2 像素流demo
