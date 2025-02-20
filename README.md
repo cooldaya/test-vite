@@ -2,14 +2,8 @@
 
 当前是 `web` 分支 Vue 纯前端
 
-1. 克隆当前分支 
-   - `git clone -b web https://github.com/cooldaya/test-vite.git new-project`
-2. 重命名分支名称
-   - `git branch -m web main`
-3. 设置新项目远程仓库地址
-   - `git remote set-url origin https://github.com/kt-project/new-project.git`
-4. 提交项目到远程仓库
-   - `git push origin HEAD`
+获取当前分支代码: 
+   - `npx degit cooldaya/test-vite#web new-project`
 
 
 ## lib 功能包含
